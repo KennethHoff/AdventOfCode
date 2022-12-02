@@ -1,7 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
-
+  <ItemGroup>
+    <!-- nlsv = Newline-separated values-->
+    <None Remove="data.nlsv" />
+    <Content Include="data.nlsv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
