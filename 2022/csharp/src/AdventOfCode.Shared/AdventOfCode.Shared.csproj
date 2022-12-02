@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-  </PropertyGroup>
-  <ItemGroup>
-    <!-- Copies the file to the output directory of the running project. Be that Day1, Day2, or any other. -->
-    <Content Include="data.nlsv" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
-</Project>

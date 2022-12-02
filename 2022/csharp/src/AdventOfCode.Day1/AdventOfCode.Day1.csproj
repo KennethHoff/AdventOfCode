@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <ProjectReference Include="..\AdventOfCode.Shared\AdventOfCode.Shared.csproj" />
+    <Content Include="data.nlsv" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
