@@ -14,13 +14,19 @@ internal sealed class FileParser
 		_filePath = filePath;
 	}
 
-	internal IReadOnlyCollection<Score> GetScores()
+	internal IReadOnlyCollection<Score> ExecuteStrategy(bool beSneaky)
 		=> File.ReadAllText(_filePath)
 			.Split(RecordDelimiter, StringSplitOptions.RemoveEmptyEntries)
 			.Select(fullStr =>
 			{
 				var choices = fullStr.Split(ValueDelimiter, StringSplitOptions.RemoveEmptyEntries);
-				return new Score(new PlayerChoice(choices[1]), new OgreChoice(choices[0]));
+				var ogreChoice = new OgreChoice(choices[0]);
+				var playerChoice = beSneaky switch
+				{
+					false => new PlayerChoice(choices[1]),
+					true  => new PlayerChoice.AntiCheat(choices[1], ogreChoice),
+				};
+				return new Score(playerChoice, ogreChoice);
 			})
 			.ToArray();
 }
