@@ -1,14 +1,7 @@
-using AdventOfCode.Shared.Models;
+using AdventOfCode.Shared;
 
-var valueDelimiter = Environment.NewLine;
-var recordDelimiter = Environment.NewLine + Environment.NewLine;
-
-Console.WriteLine(File.ReadAllText("data.nlsv")
-	.Split(recordDelimiter, StringSplitOptions.RemoveEmptyEntries)
-	.Select(fullStr => new Elf(fullStr
-		.Split(valueDelimiter, StringSplitOptions.RemoveEmptyEntries)
-		.Select(calStr => new Calorie(int.Parse(calStr)))
-		.ToArray()))
+Console.WriteLine(new FileParser("data.nlsv")
+	.ParseElves()
 	.Select(x => x.TotalCalories)
 	.OrderDescending()
 	.FirstOrDefault());
