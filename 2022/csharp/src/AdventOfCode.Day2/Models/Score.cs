@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 namespace AdventOfCode.Day2.Models;
 
-internal readonly record struct Score(Choice Player, Choice Ogre)
+internal readonly record struct Score((Choice Player, Choice Ogre) Values)
 {
 	private const int AdditionalWinPoints = 6;
 	private const int AdditionalDrawPoints = 3;
@@ -12,7 +12,7 @@ internal readonly record struct Score(Choice Player, Choice Ogre)
 	private const int PaperChoicePoints = 2;
 	private const int RockChoicePoints = 1;
 
-	public int Points => (Player, Ogre) switch
+	public int Points => Values switch
 	{
 		(Player: Choice.Paper, Ogre: Choice.Rock)        => PaperChoicePoints + AdditionalWinPoints,
 		(Player: Choice.Paper, Ogre: Choice.Scissors)    => PaperChoicePoints + AdditionalLossPoints,
