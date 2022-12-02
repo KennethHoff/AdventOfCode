@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using AdventOfCode.Day2.Models;
 
 namespace AdventOfCode.Day2;
@@ -15,14 +14,19 @@ internal sealed class FileParser
 		_filePath = filePath;
 	}
 
-	internal IReadOnlyCollection<Score> ExecuteStrategy(bool beSneaky)
+	internal IReadOnlyCollection<Score> GetScores(bool beSneaky)
 		=> File.ReadAllText(_filePath)
 			.Split(RecordDelimiter, StringSplitOptions.RemoveEmptyEntries)
-			.Select(fullStr => new Score(fullStr.Split(ValueDelimiter, StringSplitOptions.RemoveEmptyEntries) switch
+			.Select(fullStr =>
 			{
-				[var ogre, var player] when beSneaky => (new OgreChoice(ogre), new PlayerChoice.AntiCheat(player, new OgreChoice(ogre))),
-				[var ogre, var player]               => (new OgreChoice(ogre), new PlayerChoice(player)),
-				_                                    => throw new UnreachableException(),
-			}))
+				var choices = fullStr.Split(ValueDelimiter, StringSplitOptions.RemoveEmptyEntries);
+				var ogreChoice = new OgreChoice(choices[0]);
+				var playerChoice = beSneaky switch
+				{
+					false => new PlayerChoice(choices[1]),
+					true  => new PlayerChoice.AntiCheat(choices[1], ogreChoice),
+				};
+				return new Score(playerChoice, ogreChoice);
+			})
 			.ToArray();
 }
