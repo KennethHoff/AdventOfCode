@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{586A43B9-7A47-4775-86AF-0F7A41A62635}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8DFB04F4-925F-4E37-B18B-1071EB2404A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day1", "src\Day1\Day1.csproj", "{77A48681-11F5-45DF-B810-16E9E314EB9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D50B6740-AC84-4DEA-B89D-59CC59DB36E6}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{77A48681-11F5-45DF-B810-16E9E314EB9C} = {586A43B9-7A47-4775-86AF-0F7A41A62635}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77A48681-11F5-45DF-B810-16E9E314EB9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77A48681-11F5-45DF-B810-16E9E314EB9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77A48681-11F5-45DF-B810-16E9E314EB9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77A48681-11F5-45DF-B810-16E9E314EB9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
