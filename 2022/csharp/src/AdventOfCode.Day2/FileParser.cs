@@ -14,7 +14,7 @@ internal sealed class FileParser
 		_filePath = filePath;
 	}
 
-	internal IReadOnlyCollection<Score> ExecuteStrategy(bool beSneaky)
+	internal IReadOnlyCollection<Score> GetScores(bool beSneaky)
 		=> File.ReadAllText(_filePath)
 			.Split(RecordDelimiter, StringSplitOptions.RemoveEmptyEntries)
 			.Select(fullStr =>
