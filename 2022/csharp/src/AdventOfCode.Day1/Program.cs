@@ -1,4 +1,4 @@
-using AdventOfCode.Shared;
+using AdventOfCode.Day1;
 
 Console.WriteLine("Food for the #1 elf: " + new FileParser("data.nlsv")
 	.ParseElves()

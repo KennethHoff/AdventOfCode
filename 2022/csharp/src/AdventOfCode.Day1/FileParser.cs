@@ -1,6 +1,6 @@
-using AdventOfCode.Shared.Models;
+using AdventOfCode.Day1.Models;
 
-namespace AdventOfCode.Shared;
+namespace AdventOfCode.Day1;
 
 public sealed class FileParser
 {

@@ -1,4 +1,4 @@
-namespace AdventOfCode.Shared.Models;
+namespace AdventOfCode.Day1.Models;
 
 public sealed record class Elf(IReadOnlyCollection<Calorie> Calories)
 {
