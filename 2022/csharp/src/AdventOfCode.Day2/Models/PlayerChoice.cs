@@ -15,9 +15,10 @@ internal readonly record struct PlayerChoice(string Player)
 		_ when this == Scissors => Choice.Scissors,
 		_                       => throw new UnreachableException(),
 	};
-	
+
 	// Implicit conversion to Choice
-	public static implicit operator Choice(PlayerChoice playerChoice) => playerChoice.AsChoice;
+	public static implicit operator Choice(PlayerChoice playerChoice)
+		=> playerChoice.AsChoice;
 
 	// Gotta hide the fact that we have an anti-cheat by moving it inside the PlayerChoice class ;)
 	internal readonly record struct AntiCheat(string Player, OgreChoice Ogre)
@@ -40,16 +41,16 @@ internal readonly record struct PlayerChoice(string Player)
 				_ when Ogre == Choice.Rock     => Rock,
 				_ when Ogre == Choice.Paper    => Paper,
 				_ when Ogre == Choice.Scissors => Scissors,
-				_                                       => throw new UnreachableException(),
+				_                              => throw new UnreachableException(),
 			};
-		
+
 		private PlayerChoice CalculateLosingMove()
 			=> this switch
 			{
 				_ when Ogre == Choice.Rock     => Scissors,
 				_ when Ogre == Choice.Paper    => Rock,
 				_ when Ogre == Choice.Scissors => Paper,
-				_                                       => throw new UnreachableException(),
+				_                              => throw new UnreachableException(),
 			};
 
 		private PlayerChoice CalculateWinningMove()
@@ -58,7 +59,7 @@ internal readonly record struct PlayerChoice(string Player)
 				_ when Ogre == Choice.Rock     => Paper,
 				_ when Ogre == Choice.Paper    => Scissors,
 				_ when Ogre == Choice.Scissors => Rock,
-				_                                       => throw new UnreachableException(),
+				_                              => throw new UnreachableException(),
 			};
 
 		// In order to further hide the anti-cheat, we make an implicit conversion from AntiCheat to PlayerChoice ;=) 
@@ -66,3 +67,4 @@ internal readonly record struct PlayerChoice(string Player)
 			=> choice.AsPlayerChoice;
 	}
 }
+

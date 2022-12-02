@@ -15,7 +15,8 @@ internal readonly record struct OgreChoice(string Ogre)
 		_ when this == Scissors => Choice.Scissors,
 		_                       => throw new UnreachableException(),
 	};
-	
+
 	// Implicit conversion to Choice
-	public static implicit operator Choice(OgreChoice choice) => choice.AsChoice;
+	public static implicit operator Choice(OgreChoice choice)
+		=> choice.AsChoice;
 }

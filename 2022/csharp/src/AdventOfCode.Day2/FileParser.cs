@@ -7,7 +7,7 @@ internal sealed class FileParser
 {
 	private const string ValueDelimiter = " ";
 	private static readonly string RecordDelimiter = Environment.NewLine;
-	
+
 	private readonly string _filePath;
 
 	internal FileParser(string filePath)

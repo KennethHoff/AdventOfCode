@@ -8,6 +8,7 @@ internal sealed class FileParser
 	private static readonly string RecordDelimiter = Environment.NewLine + Environment.NewLine;
 
 	private readonly string _filePath;
+
 	internal FileParser(string filePath)
 	{
 		_filePath = filePath;
