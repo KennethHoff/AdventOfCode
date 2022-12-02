@@ -2,34 +2,30 @@ using System.Diagnostics;
 
 namespace AdventOfCode.Day2.Models;
 
-internal readonly record struct Score(Winner Winner, Choice Choice)
+internal readonly record struct Score(PlayerChoice Player, OgreChoice Ogre)
 {
-	private const int ScissorWin = 3;
-	private const int PaperWin = 2;
-	private const int RockWin = 1;
-	private const int Draw = 0;
-
 	private const int AdditionalWinPoints = 6;
-	private const int AdditionalLosePoints = 0;
 	private const int AdditionalDrawPoints = 3;
-	
-	public int Points => Winner switch
+	private const int AdditionalLossPoints = 0;
+
+	private const int ScissorsChoicePoints = 3;
+	private const int PaperChoicePoints = 2;
+	private const int RockChoicePoints = 1;
+
+	private Choice OgreChoice => Ogre.AsChoice;
+	private Choice PlayerChoice => Player.AsChoice;
+
+	public int Points => (PlayerChoice, OgreChoice) switch
 	{
-		Winner.Player => Choice switch
-		{
-			Choice.Scissors => ScissorWin + AdditionalWinPoints,
-			Choice.Paper => PaperWin + AdditionalWinPoints,
-			Choice.Rock => RockWin + AdditionalWinPoints,
-			_ => throw new UnreachableException(),
-		},
-		Winner.Ogre => Choice switch
-		{
-			Choice.Scissors => -ScissorWin + AdditionalLosePoints,
-			Choice.Paper => -PaperWin + AdditionalLosePoints,
-			Choice.Rock => -RockWin + AdditionalLosePoints,
-			_ => throw new UnreachableException(),
-		},
-		Winner.Draw => Draw + AdditionalDrawPoints,
-		_           => throw new UnreachableException(),
+		(PlayerChoice: Choice.Paper, OgreChoice: Choice.Rock)        => PaperChoicePoints + AdditionalWinPoints,
+		(PlayerChoice: Choice.Paper, OgreChoice: Choice.Scissors)    => PaperChoicePoints + AdditionalLossPoints,
+		(PlayerChoice: Choice.Paper, OgreChoice: Choice.Paper)       => PaperChoicePoints + AdditionalDrawPoints,
+		(PlayerChoice: Choice.Rock, OgreChoice: Choice.Scissors)     => RockChoicePoints + AdditionalWinPoints,
+		(PlayerChoice: Choice.Rock, OgreChoice: Choice.Paper)        => RockChoicePoints + AdditionalLossPoints,
+		(PlayerChoice: Choice.Rock, OgreChoice: Choice.Rock)         => RockChoicePoints + AdditionalDrawPoints,
+		(PlayerChoice: Choice.Scissors, OgreChoice: Choice.Paper)    => ScissorsChoicePoints + AdditionalWinPoints,
+		(PlayerChoice: Choice.Scissors, OgreChoice: Choice.Rock)     => ScissorsChoicePoints + AdditionalLossPoints,
+		(PlayerChoice: Choice.Scissors, OgreChoice: Choice.Scissors) => ScissorsChoicePoints + AdditionalDrawPoints,
+		_                                                            => throw new UnreachableException(),
 	};
 }

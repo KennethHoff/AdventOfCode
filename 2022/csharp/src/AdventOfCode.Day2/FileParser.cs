@@ -20,8 +20,7 @@ internal sealed class FileParser
 			.Select(fullStr =>
 			{
 				var choices = fullStr.Split(ValueDelimiter, StringSplitOptions.RemoveEmptyEntries);
-				return new Round(new OgreChoice(choices[0]), new PlayerChoice(choices[1]));
+				return new Score(new PlayerChoice(choices[1]), new OgreChoice(choices[0]));
 			})
-			.Select(x => x.Score)
 			.ToArray();
 }
