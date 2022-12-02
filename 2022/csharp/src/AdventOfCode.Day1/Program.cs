@@ -1,3 +1,5 @@
+using AdventOfCode.Shared.Models;
+
 var valueDelimiter = Environment.NewLine;
 var recordDelimiter = Environment.NewLine + Environment.NewLine;
 
@@ -10,10 +12,3 @@ Console.WriteLine(File.ReadAllText("data.nlsv")
 	.Select(x => x.TotalCalories)
 	.OrderDescending()
 	.FirstOrDefault());
-
-internal readonly record struct Elf(IReadOnlyCollection<Calorie> Calories)
-{
-	public int TotalCalories => Calories.Sum(c => c.Value);
-}
-
-internal readonly record struct Calorie(int Value);
