@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day2", "src\AdventOfCode.Day2\AdventOfCode.Day2.csproj", "{F2855E2F-784B-484C-82E8-B6D0F76B1D10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,11 +22,16 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{77A48681-11F5-45DF-B810-16E9E314EB9C} = {586A43B9-7A47-4775-86AF-0F7A41A62635}
+		{F2855E2F-784B-484C-82E8-B6D0F76B1D10} = {586A43B9-7A47-4775-86AF-0F7A41A62635}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{77A48681-11F5-45DF-B810-16E9E314EB9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{77A48681-11F5-45DF-B810-16E9E314EB9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77A48681-11F5-45DF-B810-16E9E314EB9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77A48681-11F5-45DF-B810-16E9E314EB9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2855E2F-784B-484C-82E8-B6D0F76B1D10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2855E2F-784B-484C-82E8-B6D0F76B1D10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2855E2F-784B-484C-82E8-B6D0F76B1D10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2855E2F-784B-484C-82E8-B6D0F76B1D10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
