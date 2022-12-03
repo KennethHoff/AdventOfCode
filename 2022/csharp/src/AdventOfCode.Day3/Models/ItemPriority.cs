@@ -8,6 +8,6 @@ internal readonly record struct ItemPriority(char Letter)
 	{
 		>= 'a' and <= 'z' => Letter - 'a' + 1,
 		>= 'A' and <= 'Z' => Letter - 'A' + 27,
-		_ => throw new ArgumentOutOfRangeException(nameof(Letter), Letter, "Value must be a letter"),
+		_                 => throw new ArgumentOutOfRangeException(nameof(Letter), Letter, "Value must be a letter"),
 	};
 }
