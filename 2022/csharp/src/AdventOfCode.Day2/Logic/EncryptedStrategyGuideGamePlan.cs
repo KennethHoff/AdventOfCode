@@ -14,6 +14,8 @@ internal sealed class EncryptedStrategyGuideGamePlan : IGamePlan
 		_filePath = filePath;
 	}
 
+	#region Interface Implementations
+
 	public IEnumerable<Score> Execute()
 		=> File.ReadAllText(_filePath)
 			.Split(RecordDelimiter, StringSplitOptions.RemoveEmptyEntries)
@@ -24,4 +26,7 @@ internal sealed class EncryptedStrategyGuideGamePlan : IGamePlan
 				var playerChoice = new PlayerChoice(choices[1]);
 				return new Score(playerChoice, ogreChoice);
 			});
+
+	#endregion
 }
+

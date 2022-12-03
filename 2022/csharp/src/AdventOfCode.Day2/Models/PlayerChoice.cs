@@ -67,4 +67,3 @@ internal readonly record struct PlayerChoice(string Player)
 			=> choice.AsPlayerChoice;
 	}
 }
-

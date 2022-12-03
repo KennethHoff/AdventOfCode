@@ -14,6 +14,8 @@ internal sealed class UltraTopSecretStrategyGuideGamePlan : IGamePlan
 		_filePath = filePath;
 	}
 
+	#region Interface Implementations
+
 	public IEnumerable<Score> Execute()
 		=> File.ReadAllText(_filePath)
 			.Split(RecordDelimiter, StringSplitOptions.RemoveEmptyEntries)
@@ -24,4 +26,6 @@ internal sealed class UltraTopSecretStrategyGuideGamePlan : IGamePlan
 				PlayerChoice playerChoice = new PlayerChoice.AntiCheat(choices[1], ogreChoice);
 				return new Score(playerChoice, ogreChoice);
 			});
+
+	#endregion
 }

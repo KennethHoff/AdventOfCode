@@ -24,4 +24,3 @@ internal sealed class RuckSackOrganizer
 				return new RuckSack(compartment1, compartment2);
 			});
 }
-
