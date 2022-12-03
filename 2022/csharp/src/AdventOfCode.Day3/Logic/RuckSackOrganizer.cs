@@ -1,6 +1,6 @@
 using AdventOfCode.Day3.Models;
 
-namespace AdventOfCode.Day3;
+namespace AdventOfCode.Day3.Logic;
 
 internal sealed class RuckSackOrganizer
 {
@@ -13,7 +13,7 @@ internal sealed class RuckSackOrganizer
 		_filePath = filePath;
 	}
 
-	internal IReadOnlyCollection<RuckSack> Organize()
+	public IEnumerable<RuckSack> Organize()
 		=> File.ReadAllText(_filePath)
 			.Split(RecordDelimiter, StringSplitOptions.RemoveEmptyEntries)
 			.Select(itemsInSack =>
@@ -22,7 +22,6 @@ internal sealed class RuckSackOrganizer
 				var compartment1 = new RuckSackCompartment(parts[0].Select(item => new RuckSackItem(new ItemPriority(item))).ToArray());
 				var compartment2 = new RuckSackCompartment(parts[1].Select(item => new RuckSackItem(new ItemPriority(item))).ToArray());
 				return new RuckSack(compartment1, compartment2);
-			})
-			.ToArray();
+			});
 }
 

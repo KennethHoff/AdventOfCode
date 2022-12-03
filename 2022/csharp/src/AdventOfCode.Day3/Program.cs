@@ -1,4 +1,4 @@
-﻿using AdventOfCode.Day3;
+﻿using AdventOfCode.Day3.Logic;
 
 Console.WriteLine("Sum of the priorities of items that appear in both compartments: " + new RuckSackOrganizer("data.nlsv")
 	.Organize()
