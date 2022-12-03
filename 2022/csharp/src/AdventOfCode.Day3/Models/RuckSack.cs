@@ -4,5 +4,3 @@ internal sealed record class RuckSack(RuckSackCompartment Compartment1, RuckSack
 {
 	public IReadOnlyCollection<RuckSackItem> AllItems => Compartment1.Items.Concat(Compartment2.Items).ToArray();
 }
-
-internal sealed record class RuckSackCompartment(IReadOnlyCollection<RuckSackItem> Items);
