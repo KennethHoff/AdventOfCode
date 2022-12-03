@@ -8,7 +8,7 @@ internal sealed class RuckSackOrganizer
 
 	private readonly string _filePath;
 
-	internal RuckSackOrganizer(string filePath)
+	public RuckSackOrganizer(string filePath)
 	{
 		_filePath = filePath;
 	}

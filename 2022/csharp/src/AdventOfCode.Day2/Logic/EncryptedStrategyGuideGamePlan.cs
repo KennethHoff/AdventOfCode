@@ -9,7 +9,7 @@ internal sealed class EncryptedStrategyGuideGamePlan : IGamePlan
 
 	private readonly string _filePath;
 
-	internal EncryptedStrategyGuideGamePlan(string filePath)
+	public EncryptedStrategyGuideGamePlan(string filePath)
 	{
 		_filePath = filePath;
 	}

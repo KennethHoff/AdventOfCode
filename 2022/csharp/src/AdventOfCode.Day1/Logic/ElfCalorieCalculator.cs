@@ -9,12 +9,12 @@ internal sealed class ElfCalorieCalculator
 
 	private readonly string _filePath;
 
-	internal ElfCalorieCalculator(string filePath)
+	public ElfCalorieCalculator(string filePath)
 	{
 		_filePath = filePath;
 	}
 
-	internal IReadOnlyCollection<Elf> CalculateCaloriesEachElfIsCarrying()
+	public IReadOnlyCollection<Elf> CalculateCaloriesEachElfIsCarrying()
 		=> File.ReadAllText(_filePath)
 			.Split(RecordDelimiter, StringSplitOptions.RemoveEmptyEntries)
 			.Select(fullStr => new Elf(fullStr

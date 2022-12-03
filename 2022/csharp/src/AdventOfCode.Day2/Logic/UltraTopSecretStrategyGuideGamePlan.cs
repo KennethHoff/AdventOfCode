@@ -9,7 +9,7 @@ internal sealed class UltraTopSecretStrategyGuideGamePlan : IGamePlan
 
 	private readonly string _filePath;
 
-	internal UltraTopSecretStrategyGuideGamePlan(string filePath)
+	public UltraTopSecretStrategyGuideGamePlan(string filePath)
 	{
 		_filePath = filePath;
 	}
