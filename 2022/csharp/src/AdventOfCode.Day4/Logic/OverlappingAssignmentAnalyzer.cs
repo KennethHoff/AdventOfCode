@@ -6,7 +6,7 @@ internal sealed class OverlappingAssignmentAnalyzer
 {
 	private const string ValueDelimiter = ",";
 	private const string RangeDelimiter = "-";
-	private const string RecordDelimiter = "\n";
+	private static readonly string RecordDelimiter = Environment.NewLine;
 
 	private readonly string _filePath;
 
