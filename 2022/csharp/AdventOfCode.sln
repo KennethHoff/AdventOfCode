@@ -9,23 +9,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day1", "src\AdventOfCode.Day1\AdventOfCode.Day1.csproj", "{E0FA7F71-B12D-4490-ADA7-92AB8DADC4BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day01", "src\AdventOfCode.Day01\AdventOfCode.Day01.csproj", "{E0FA7F71-B12D-4490-ADA7-92AB8DADC4BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day2", "src\AdventOfCode.Day2\AdventOfCode.Day2.csproj", "{974A195F-DF60-4DF8-9A7D-4171830813C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day02", "src\AdventOfCode.Day02\AdventOfCode.Day02.csproj", "{974A195F-DF60-4DF8-9A7D-4171830813C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day3", "src\AdventOfCode.Day3\AdventOfCode.Day3.csproj", "{1268A58B-0366-410A-AEB9-05233577748A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day03", "src\AdventOfCode.Day03\AdventOfCode.Day03.csproj", "{1268A58B-0366-410A-AEB9-05233577748A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day4", "src\AdventOfCode.Day4\AdventOfCode.Day4.csproj", "{F46FA9C0-9627-434E-A6BC-2A96AAFFBAFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day04", "src\AdventOfCode.Day04\AdventOfCode.Day04.csproj", "{F46FA9C0-9627-434E-A6BC-2A96AAFFBAFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day5", "src\AdventOfCode.Day5\AdventOfCode.Day5.csproj", "{09A65A2D-11DC-458D-B4EB-96C86816595D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day05", "src\AdventOfCode.Day05\AdventOfCode.Day05.csproj", "{09A65A2D-11DC-458D-B4EB-96C86816595D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day7", "src\AdventOfCode.Day7\AdventOfCode.Day7.csproj", "{F17A2428-2F8B-4FC9-BA69-9A0268FE7ED5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day07", "src\AdventOfCode.Day07\AdventOfCode.Day07.csproj", "{F17A2428-2F8B-4FC9-BA69-9A0268FE7ED5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day8", "src\AdventOfCode.Day8\AdventOfCode.Day8.csproj", "{AC2A5F8C-B4F5-4814-86BC-18F1235CCF0E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day08", "src\AdventOfCode.Day08\AdventOfCode.Day08.csproj", "{AC2A5F8C-B4F5-4814-86BC-18F1235CCF0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day9", "src\AdventOfCode.Day9\AdventOfCode.Day9.csproj", "{4A9D88B6-2DAE-4F80-B8AF-4385156F2F9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day09", "src\AdventOfCode.Day09\AdventOfCode.Day09.csproj", "{4A9D88B6-2DAE-4F80-B8AF-4385156F2F9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day6", "src\AdventOfCode.Day6\AdventOfCode.Day6.csproj", "{6CBA2DD7-AF1D-48D6-AD13-AAF6FA83C148}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day06", "src\AdventOfCode.Day06\AdventOfCode.Day06.csproj", "{6CBA2DD7-AF1D-48D6-AD13-AAF6FA83C148}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Day10", "src\AdventOfCode.Day10\AdventOfCode.Day10.csproj", "{221B960B-2C3F-4187-9EFC-9DD004D0D726}"
 EndProject
