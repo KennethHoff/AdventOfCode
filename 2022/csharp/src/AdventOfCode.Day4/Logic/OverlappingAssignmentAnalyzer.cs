@@ -2,7 +2,7 @@ using AdventOfCode.Day4.Models;
 
 namespace AdventOfCode.Day4.Logic;
 
-internal sealed class OverlappingAssignmentAnalyzer : IAssignmentAnalyzer
+internal sealed class OverlappingAssignmentAnalyzer
 {
 	private const string ValueDelimiter = ",";
 	private const string RangeDelimiter = "-";
@@ -14,6 +14,8 @@ internal sealed class OverlappingAssignmentAnalyzer : IAssignmentAnalyzer
 	{
 		_filePath = filePath;
 	}
+
+	#region Interface Implementations
 
 	public IEnumerable<AssignmentPair> GetAssignments()
 		=> File.ReadAllText(_filePath)
@@ -27,14 +29,11 @@ internal sealed class OverlappingAssignmentAnalyzer : IAssignmentAnalyzer
 				return new AssignmentPair(assignment1, assignment2);
 			});
 
+	#endregion
+
 	private static Range CreateRange(string value)
 	{
 		var range = value.Split(RangeDelimiter, StringSplitOptions.RemoveEmptyEntries);
 		return int.Parse(range[0])..int.Parse(range[1]);
 	}
-}
-
-internal interface IAssignmentAnalyzer
-{
-	IEnumerable<AssignmentPair> GetAssignments();
 }
