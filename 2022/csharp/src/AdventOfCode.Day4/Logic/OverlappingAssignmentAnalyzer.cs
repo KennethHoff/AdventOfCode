@@ -15,8 +15,6 @@ internal sealed class OverlappingAssignmentAnalyzer
 		_filePath = filePath;
 	}
 
-	#region Interface Implementations
-
 	public IEnumerable<AssignmentPair> GetAssignments()
 		=> File.ReadAllText(_filePath)
 			.Split(RecordDelimiter, StringSplitOptions.RemoveEmptyEntries)
@@ -28,8 +26,6 @@ internal sealed class OverlappingAssignmentAnalyzer
 
 				return new AssignmentPair(assignment1, assignment2);
 			});
-
-	#endregion
 
 	private static Range CreateRange(string value)
 	{
