@@ -1,5 +1,7 @@
 ﻿using AdventOfCode.Day2.Logic;
 
+Console.WriteLine("Day 2");
+
 Console.WriteLine("Total score if everything goes according to plan: " + new EncryptedStrategyGuideGamePlan("data.ssv")
 	.Execute()
 	.Select(x => x.Points)

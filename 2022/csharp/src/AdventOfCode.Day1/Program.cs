@@ -1,5 +1,7 @@
 using AdventOfCode.Day1.Logic;
 
+Console.WriteLine("Day 1");
+
 Console.WriteLine("Food for the #1 elf: " + new ElfCalorieCalculator("data.nlsv")
 	.CalculateCaloriesEachElfIsCarrying()
 	.Select(x => x.TotalCalories)

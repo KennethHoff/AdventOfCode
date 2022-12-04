@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <Content Include="data.csv" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
