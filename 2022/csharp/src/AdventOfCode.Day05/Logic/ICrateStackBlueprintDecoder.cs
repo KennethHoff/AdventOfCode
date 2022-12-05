@@ -4,11 +4,11 @@ namespace AdventOfCode.Day05.Logic;
 
 internal interface ICrateStackBlueprintDecoder
 {
-	CrateStacks CreateStacks();
+	ICrateStacker CreateStacks();
 	IReadOnlyCollection<CraneMove> CreateMoves();
 }
 
-internal sealed class DrawingCrateStackBlueprintDecoder : ICrateStackBlueprintDecoder
+internal sealed class InefficientDrawingCrateStackBlueprintDecoder : ICrateStackBlueprintDecoder
 {
 	// Example of a stack:
 	// [A] [B] [S] [D] [H]     [T]
@@ -31,7 +31,7 @@ internal sealed class DrawingCrateStackBlueprintDecoder : ICrateStackBlueprintDe
 	private int StartOfMoves => _tallestStack + 3;
 	private int LineContainingStackId => _tallestStack + 1;
 
-	public DrawingCrateStackBlueprintDecoder(string filePath)
+	public InefficientDrawingCrateStackBlueprintDecoder(string filePath)
 	{
 		_blueprint = File.ReadAllLines(filePath);
 		_tallestStack = _blueprint
@@ -43,8 +43,8 @@ internal sealed class DrawingCrateStackBlueprintDecoder : ICrateStackBlueprintDe
 			.Max();
 	}
 
-	public CrateStacks CreateStacks()
-		=> new(Enumerable.Range(1, _numberOfStacks)
+	public ICrateStacker CreateStacks()
+		=> new InefficientCreateStacker(Enumerable.Range(1, _numberOfStacks)
 			.Select(number =>
 			{
 				var columStartIndex = _blueprint[LineContainingStackId]
@@ -64,4 +64,63 @@ internal sealed class DrawingCrateStackBlueprintDecoder : ICrateStackBlueprintDe
 		=> _blueprint
 			.Skip(StartOfMoves)
 			.Select(x => new CraneMove(x)).ToArray();
+}
+
+internal sealed class EfficientDrawingCrateStackBlueprintDecoder : ICrateStackBlueprintDecoder
+{
+	// Example of a stack:
+	// [A] [B] [S] [D] [H]     [T]
+	// [A] [B] [C] [D] [G]     [R] 
+	// [A] [B] [G] [D] [F]     [E] 
+	// [A] [B] [C] [E] [E]     [X] [D] [Z]
+	// [A] [B] [Z] [D] [D]     [V] [E] [D]
+	// [Z] [B] [C] [D] [E]     [G] [H] [E]
+	// [A] [B] [C] [C] [E] [F] [G] [H] [R]
+	//  1   2   3   4   5   6   7   8   9   
+	//
+	// move x from y to z
+	// move a from b to c
+	// ...
+
+	private readonly string[] _blueprint;
+	private readonly int _tallestStack;
+	private readonly int _numberOfStacks;
+
+	private int StartOfMoves => _tallestStack + 3;
+	private int LineContainingStackId => _tallestStack + 1;
+
+	public EfficientDrawingCrateStackBlueprintDecoder(string filePath)
+	{
+		_blueprint = File.ReadAllLines(filePath);
+		_tallestStack = _blueprint
+			.TakeWhile(line => !line.Any(char.IsDigit))
+			.Count() - 1;
+		_numberOfStacks = _blueprint[LineContainingStackId]
+			.Split(' ', StringSplitOptions.RemoveEmptyEntries)
+			.Select(int.Parse)
+			.Max();
+	}
+
+	public ICrateStacker CreateStacks()
+		=> new EfficientCreateStacker(Enumerable.Range(1, _numberOfStacks)
+			.Select(number =>
+			{
+				var columStartIndex = _blueprint[LineContainingStackId]
+					.IndexOf(number.ToString(), StringComparison.Ordinal);
+
+				var crates = _blueprint
+					.Take(LineContainingStackId)
+					.Select(line => line[columStartIndex])
+					.Where(char.IsLetter)
+					.Select(x => new Crate(x))
+					.Reverse();
+
+				return new CrateStack(crates, new CrateStackId(number));
+			}));
+
+	public IReadOnlyCollection<CraneMove> CreateMoves()
+		=> _blueprint
+			.Skip(StartOfMoves)
+			.Select(x => new CraneMove(x))
+			.ToArray();
 }

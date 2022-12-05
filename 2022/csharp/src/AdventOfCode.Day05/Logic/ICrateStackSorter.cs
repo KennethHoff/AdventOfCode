@@ -4,12 +4,12 @@ namespace AdventOfCode.Day05.Logic;
 
 internal interface ICrateStackSorter
 {
-	CrateStacks Sort(CrateStacks stacks, IEnumerable<CraneMove> craneMoves);
+	ICrateStacker Sort(ICrateStacker stacks, IEnumerable<CraneMove> craneMoves);
 }
 
 internal sealed class DrawingCrateStackSorter : ICrateStackSorter
 {
-	public CrateStacks Sort(CrateStacks stacks, IEnumerable<CraneMove> craneMoves)
+	public ICrateStacker Sort(ICrateStacker stacks, IEnumerable<CraneMove> craneMoves)
 	{
 		foreach (var move in craneMoves)
 		{
