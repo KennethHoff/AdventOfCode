@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
+    <!-- Some Kind Of File Format aka S~cu~koffed -->
   <ItemGroup>
-    <Content Include="data.csv" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="data.skoff" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
