@@ -1,13 +1,14 @@
 ﻿using AdventOfCode.Day05.Logic;
+using AdventOfCode.Day05.Models;
 
 Console.WriteLine("Day 5");
 
-Console.WriteLine("Inefficient stacking: " + new InefficientCraneOperator("data.skoff")
+Console.WriteLine("Inefficient stacking: " + new CraneOperator<InefficientCrateStacker>("data.skoff")
 	.SortCrateStacks()
 	.Select(x => x.Value.FirstOrDefault().Value.ToString())
 	.Aggregate((x, y) => x + y));
 
-Console.WriteLine("Efficient stacking: " + new EfficientCraneOperator("data.skoff")
+Console.WriteLine("Efficient stacking: " + new CraneOperator<EfficientCrateStacker>("data.skoff")
 	.SortCrateStacks()
 	.Select(x => x.Value.FirstOrDefault().Value.ToString())
 	.Aggregate((x, y) => x + y));

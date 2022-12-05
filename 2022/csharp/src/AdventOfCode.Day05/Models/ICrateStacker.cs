@@ -5,11 +5,12 @@ namespace AdventOfCode.Day05.Models;
 internal interface ICrateStacker : IDictionary<CrateStackId, CrateStack>
 {
 	void Transfer(CraneMove move);
+	abstract static ICrateStacker Create(IEnumerable<CrateStack> enumerable);
 }
 
-internal sealed class InefficientCreateStacker : Dictionary<CrateStackId, CrateStack>, ICrateStacker
+internal sealed class InefficientCrateStacker : Dictionary<CrateStackId, CrateStack>, ICrateStacker
 {
-	public InefficientCreateStacker(IEnumerable<CrateStack> stacks)
+	public InefficientCrateStacker(IEnumerable<CrateStack> stacks)
 	{
 		foreach (var stack in stacks)
 		{
@@ -25,11 +26,14 @@ internal sealed class InefficientCreateStacker : Dictionary<CrateStackId, CrateS
 			this[move.ToStackId].Push(crate);
 		}
 	}
+
+	public static ICrateStacker Create(IEnumerable<CrateStack> enumerable)
+		=> new InefficientCrateStacker(enumerable);
 }
 
-internal sealed class EfficientCreateStacker : Dictionary<CrateStackId, CrateStack>, ICrateStacker
+internal sealed class EfficientCrateStacker : Dictionary<CrateStackId, CrateStack>, ICrateStacker
 {
-	public EfficientCreateStacker(IEnumerable<CrateStack> stacks)
+	public EfficientCrateStacker(IEnumerable<CrateStack> stacks)
 	{
 		foreach (var stack in stacks)
 		{
@@ -50,4 +54,7 @@ internal sealed class EfficientCreateStacker : Dictionary<CrateStackId, CrateSta
 			this[move.ToStackId].Push(crate);
 		}
 	}
+
+	public static ICrateStacker Create(IEnumerable<CrateStack> enumerable)
+		=> new EfficientCrateStacker(enumerable);
 }
