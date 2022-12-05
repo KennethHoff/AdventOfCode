@@ -4,12 +4,12 @@ namespace AdventOfCode.Day05.Logic;
 
 internal interface ICrateStackBlueprintDecoder
 {
-	ICrateStacker CreateStacks();
 	IReadOnlyCollection<CraneMove> CreateMoves();
+	ICrateStacker CreateStacks();
 }
 
 internal sealed class DrawingCrateStackBlueprintDecoder<TCrateStacker> : ICrateStackBlueprintDecoder
-	where TCrateStacker: ICrateStacker
+	where TCrateStacker : ICrateStacker
 {
 	// Example of a stack:
 	// [A] [B] [S] [D] [H]     [T]
@@ -26,11 +26,11 @@ internal sealed class DrawingCrateStackBlueprintDecoder<TCrateStacker> : ICrateS
 	// ...
 
 	private readonly string[] _blueprint;
-	private readonly int _tallestStack;
 	private readonly int _numberOfStacks;
+	private readonly int _tallestStack;
+	private int LineContainingStackId => _tallestStack + 1;
 
 	private int StartOfMoves => _tallestStack + 3;
-	private int LineContainingStackId => _tallestStack + 1;
 
 	public DrawingCrateStackBlueprintDecoder(string filePath)
 	{
@@ -43,6 +43,14 @@ internal sealed class DrawingCrateStackBlueprintDecoder<TCrateStacker> : ICrateS
 			.Select(int.Parse)
 			.Max();
 	}
+
+	#region Interface Implementations
+
+	public IReadOnlyCollection<CraneMove> CreateMoves()
+		=> _blueprint
+			.Skip(StartOfMoves)
+			.Select(x => new CraneMove(x))
+			.ToArray();
 
 	public ICrateStacker CreateStacks()
 		=> TCrateStacker.Create(Enumerable.Range(1, _numberOfStacks)
@@ -61,8 +69,5 @@ internal sealed class DrawingCrateStackBlueprintDecoder<TCrateStacker> : ICrateS
 				return new CrateStack(crates, new CrateStackId(number));
 			}));
 
-	public IReadOnlyCollection<CraneMove> CreateMoves()
-		=> _blueprint
-			.Skip(StartOfMoves)
-			.Select(x => new CraneMove(x)).ToArray();
+	#endregion
 }

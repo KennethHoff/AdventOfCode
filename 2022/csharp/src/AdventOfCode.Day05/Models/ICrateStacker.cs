@@ -18,6 +18,11 @@ internal sealed class InefficientCrateStacker : Dictionary<CrateStackId, CrateSt
 		}
 	}
 
+	#region Interface Implementations
+
+	public static ICrateStacker Create(IEnumerable<CrateStack> enumerable)
+		=> new InefficientCrateStacker(enumerable);
+
 	public void Transfer(CraneMove move)
 	{
 		for (var i = 0; i < move.NumberOfCrates; i++)
@@ -27,8 +32,7 @@ internal sealed class InefficientCrateStacker : Dictionary<CrateStackId, CrateSt
 		}
 	}
 
-	public static ICrateStacker Create(IEnumerable<CrateStack> enumerable)
-		=> new InefficientCrateStacker(enumerable);
+	#endregion
 }
 
 internal sealed class EfficientCrateStacker : Dictionary<CrateStackId, CrateStack>, ICrateStacker
@@ -41,6 +45,11 @@ internal sealed class EfficientCrateStacker : Dictionary<CrateStackId, CrateStac
 		}
 	}
 
+	#region Interface Implementations
+
+	public static ICrateStacker Create(IEnumerable<CrateStack> enumerable)
+		=> new EfficientCrateStacker(enumerable);
+
 	public void Transfer(CraneMove move)
 	{
 		var crates = new List<Crate>();
@@ -48,6 +57,7 @@ internal sealed class EfficientCrateStacker : Dictionary<CrateStackId, CrateStac
 		{
 			crates.Add(this[move.FromStackId].Pop());
 		}
+
 		crates.Reverse();
 		foreach (var crate in crates)
 		{
@@ -55,6 +65,5 @@ internal sealed class EfficientCrateStacker : Dictionary<CrateStackId, CrateStac
 		}
 	}
 
-	public static ICrateStacker Create(IEnumerable<CrateStack> enumerable)
-		=> new EfficientCrateStacker(enumerable);
+	#endregion
 }

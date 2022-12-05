@@ -9,6 +9,8 @@ internal interface ICrateStackSorter
 
 internal sealed class DrawingCrateStackSorter : ICrateStackSorter
 {
+	#region Interface Implementations
+
 	public ICrateStacker Sort(ICrateStacker stacks, IEnumerable<CraneMove> craneMoves)
 	{
 		foreach (var move in craneMoves)
@@ -18,4 +20,6 @@ internal sealed class DrawingCrateStackSorter : ICrateStackSorter
 
 		return stacks;
 	}
+
+	#endregion
 }

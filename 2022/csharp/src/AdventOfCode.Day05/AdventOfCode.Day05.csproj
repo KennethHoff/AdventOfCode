@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <!-- Some Kind Of File Format aka S~cu~koffed -->
+  <!-- Some Kind Of File Format aka S~cu~koffed -->
   <ItemGroup>
     <None Include="data.skoff" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>

@@ -5,9 +5,9 @@ namespace AdventOfCode.Day05.Logic;
 internal sealed class CraneOperator<TCrateStacker>
 	where TCrateStacker : ICrateStacker
 {
-	private ICrateStacker _inefficientCreateStacker;
-	private readonly ICrateStackSorter _crateStackSorter;
 	private readonly IReadOnlyCollection<CraneMove> _craneMoves;
+	private readonly ICrateStackSorter _crateStackSorter;
+	private ICrateStacker _inefficientCreateStacker;
 
 	public CraneOperator(string filePath)
 	{
