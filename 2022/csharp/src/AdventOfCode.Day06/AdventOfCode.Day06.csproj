@@ -3,7 +3,4 @@
   <ItemGroup>
     <None Include="data.gg" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models" />
-  </ItemGroup>
 </Project>
