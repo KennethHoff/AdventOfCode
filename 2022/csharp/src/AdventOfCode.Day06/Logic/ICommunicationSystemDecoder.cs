@@ -1,11 +1,9 @@
 namespace AdventOfCode.Day06.Logic;
 
-
 internal interface ICommunicationSystemDecoder
 {
 	IEnumerable<string> GetMessages();
 }
-
 
 internal sealed class EndOfMessageCommunicationSystemDecoder : ICommunicationSystemDecoder
 {
@@ -15,6 +13,8 @@ internal sealed class EndOfMessageCommunicationSystemDecoder : ICommunicationSys
 	{
 		_messageStream = File.ReadAllText(filePath);
 	}
+
+	#region Interface Implementations
 
 	public IEnumerable<string> GetMessages()
 	{
@@ -33,6 +33,8 @@ internal sealed class EndOfMessageCommunicationSystemDecoder : ICommunicationSys
 			}
 		}
 	}
+
+	#endregion
 }
 
 internal sealed class StartOfMessageCommunicationSystemDecoder : ICommunicationSystemDecoder
@@ -43,6 +45,8 @@ internal sealed class StartOfMessageCommunicationSystemDecoder : ICommunicationS
 	{
 		_messageStream = File.ReadAllText(filePath);
 	}
+
+	#region Interface Implementations
 
 	public IEnumerable<string> GetMessages()
 	{
@@ -61,4 +65,6 @@ internal sealed class StartOfMessageCommunicationSystemDecoder : ICommunicationS
 			}
 		}
 	}
+
+	#endregion
 }
