@@ -1,5 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <!-- Giga String -> gg -->
   <ItemGroup>
-    <Content Include="data.csv" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="data.gg" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models" />
   </ItemGroup>
 </Project>
