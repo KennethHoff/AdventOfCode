@@ -25,12 +25,14 @@ internal sealed class EndOfMessageCommunicationSystemDecoder : ICommunicationSys
 		foreach (var ch in _messageStream)
 		{
 			imperativeList.Add(ch);
-			if (imperativeList.TakeLast(endOfMessageMarkerCount).Distinct().Count() == endOfMessageMarkerCount)
+			if (imperativeList.TakeLast(endOfMessageMarkerCount).Distinct().Count() != endOfMessageMarkerCount)
 			{
-				var message = imperativeList.Select(x => x.ToString()).Aggregate((a, b) => a + b);
-				yield return message;
-				imperativeList.Clear();
+				continue;
 			}
+
+			var message = imperativeList.Select(x => x.ToString()).Aggregate((a, b) => a + b);
+			yield return message;
+			imperativeList.Clear();
 		}
 	}
 
@@ -57,12 +59,14 @@ internal sealed class StartOfMessageCommunicationSystemDecoder : ICommunicationS
 		foreach (var ch in _messageStream)
 		{
 			imperativeList.Add(ch);
-			if (imperativeList.TakeLast(startOfMessageMarkerCount).Distinct().Count() == startOfMessageMarkerCount)
+			if (imperativeList.TakeLast(startOfMessageMarkerCount).Distinct().Count() != startOfMessageMarkerCount)
 			{
-				var message = imperativeList.Select(x => x.ToString()).Aggregate((a, b) => a + b);
-				yield return message;
-				imperativeList.Clear();
+				continue;
 			}
+
+			var message = imperativeList.Select(x => x.ToString()).Aggregate((a, b) => a + b);
+			yield return message;
+			imperativeList.Clear();
 		}
 	}
 
