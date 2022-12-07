@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <Content Include="data.csv" CopyToOutputDirectory="PreserveNewest" />
+    <!-- Command Line Log -> cll -->
+    <None Include="data.cll" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
