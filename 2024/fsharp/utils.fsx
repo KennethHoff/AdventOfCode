@@ -17,7 +17,7 @@ let convertStringPairToIntPair (a: string * string) =
     with :? FormatException ->
         failwith "One or both of the strings cannot be parsed as integers"
 
-let tupleToFormattedString tuple : string =
+let tupleToFormattedString tuple =
     sprintf "(%A, %A)" (fst tuple) (snd tuple)
 
 let prependIndexToString index str = sprintf "%d: %s" index str
@@ -30,5 +30,14 @@ let printTupleAsString tuple =
 let printIndexedTupleAsString index tuple =
     tupleToFormattedString tuple |> prependIndexToString index |> printfn "%s"
 
-// TODO: Figure out how if it's possible to remove the type annotations.
-let calculateAbsoluteDifference = (fun (x: int, y: int) -> System.Math.Abs(x - y))
+let calculateAbsoluteDifference = fun (x: int, y: int) -> System.Math.Abs(x - y)
+
+let buildFrequencyMap arr =
+    arr
+    |> Array.fold
+        (fun acc n ->
+            acc
+            |> Map.change n (function
+                | Some count -> Some(count + 1)
+                | None -> Some 1))
+        Map.empty
