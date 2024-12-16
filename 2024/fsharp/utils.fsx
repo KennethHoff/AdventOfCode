@@ -17,18 +17,7 @@ let convertStringPairToIntPair (a: string * string) =
     with :? FormatException ->
         failwith "One or both of the strings cannot be parsed as integers"
 
-let tupleToFormattedString tuple =
-    sprintf "(%A, %A)" (fst tuple) (snd tuple)
-
-let prependIndexToString index str = sprintf "%d: %s" index str
-
 let sortTupleElements = fun (first, second) -> (Array.sort first, Array.sort second)
-
-let printTupleAsString tuple =
-    tuple |> tupleToFormattedString |> printfn "%s"
-
-let printIndexedTupleAsString index tuple =
-    tupleToFormattedString tuple |> prependIndexToString index |> printfn "%s"
 
 let calculateAbsoluteDifference = fun (x: int, y: int) -> System.Math.Abs(x - y)
 
