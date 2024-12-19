@@ -1,4 +1,5 @@
 #load "utils.fsx"
+
 open Operators
 
 let input = System.IO.File.ReadAllLines("day1.txt")
@@ -9,7 +10,7 @@ input
 |> Array.unzip
 |> Utils.sortTupleElements
 |-> Array.zip
-|> Array.map Utils.calculateAbsoluteDifference
+|> Array.map Utils.abs
 |> Array.sum
 |> Taps.logAndContinue "Part 1: %d"
 

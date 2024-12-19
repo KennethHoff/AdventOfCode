@@ -1,14 +1,17 @@
+#r "nuget: FSharpx.Extras"
 #load "taps.fsx"
 #load "operators.fsx"
 
 open System
+open FSharpx
 
-let splitStringIntoPair (a: string) =
-    a.Split ' '
-    |> Array.filter (not << String.IsNullOrWhiteSpace)
-    |> function
+let splitStringIntoArray = String.splitChar [| ' ' |]
+
+let splitStringIntoPair =
+    splitStringIntoArray
+    >> function
         | [| x; y |] -> (x, y)
-        | _ -> failwith "Invalid input: Expected expectly two non-empty strings"
+        | _ -> failwith "Invalid input: Expected exactly two non-empty strings"
 
 let convertStringPairToIntPair (a: string * string) =
     let (str1, str2) = a
@@ -20,7 +23,7 @@ let convertStringPairToIntPair (a: string * string) =
 
 let sortTupleElements = fun (first, second) -> (Array.sort first, Array.sort second)
 
-let calculateAbsoluteDifference = fun (x: int, y: int) -> System.Math.Abs(x - y)
+let abs = fun (x: int, y: int) -> abs x - y
 
 let buildFrequencyMap arr =
     arr
