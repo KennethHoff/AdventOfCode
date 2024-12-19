@@ -1,9 +1,9 @@
 #load "utils.fsx"
 open Operators
 
-let allLines = System.IO.File.ReadAllLines("day1.txt")
+let input = System.IO.File.ReadAllLines("day1.txt")
 
-allLines
+input
 |> Array.map Utils.splitStringIntoPair
 |> Array.map Utils.convertStringPairToIntPair
 |> Array.unzip
@@ -13,7 +13,7 @@ allLines
 |> Array.sum
 |> Taps.logAndContinue "Part 1: %d"
 
-allLines
+input
 |> Array.map Utils.splitStringIntoPair
 |> Array.map Utils.convertStringPairToIntPair
 |> Array.unzip
