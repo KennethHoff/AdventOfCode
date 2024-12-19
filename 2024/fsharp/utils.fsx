@@ -1,6 +1,7 @@
 #load "taps.fsx"
-open System
+#load "operators.fsx"
 
+open System
 
 let splitStringIntoPair (a: string) =
     a.Split ' '
